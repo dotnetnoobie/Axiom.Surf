@@ -5,7 +5,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Project1.Client
+namespace Axiom.Surf.Client
 {
     public class Program
     {

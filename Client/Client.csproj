@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
-		<RootNamespace>Project1.Client</RootNamespace>
-		<AssemblyName>Project1.Client</AssemblyName>
+		<RootNamespace>Axiom.Surf.Client</RootNamespace>
+		<AssemblyName>Axiom.Surf.Client</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>

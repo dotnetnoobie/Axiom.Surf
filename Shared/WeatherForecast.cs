@@ -1,6 +1,6 @@
 using System;
 
-namespace Project1.Shared
+namespace Axiom.Surf.Shared
 {
     public class WeatherForecast
     {
