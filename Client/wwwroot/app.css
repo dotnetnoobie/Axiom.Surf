@@ -7209,7 +7209,6 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-/*@import "open-iconic/open-iconic";*/
 /*!
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -11987,7 +11986,7 @@ header {
 
 main {
   grid-area: content;
-  margin: 0.5rem; }
+  margin: 1rem; }
 
 footer {
   display: grid;
@@ -12326,3 +12325,23 @@ nav > div {
 .loading {
   display: grid;
   place-items: center; }
+
+.loading::after {
+  content: "";
+  width: 5rem;
+  height: 5rem;
+  border: 0.75rem solid #dddddd;
+  border-top-color: #00ff21;
+  border-bottom-color: #ffd800;
+  border-left-color: #ff0000;
+  border-right-color: #0026ff;
+  border-radius: 50%;
+  transform: rotate(0.16turn);
+  animation: loading 1s linear infinite; }
+
+@keyframes loading {
+  /* Safari support */
+  from {
+    transform: rotate(0turn); }
+  to {
+    transform: rotate(1turn); } }

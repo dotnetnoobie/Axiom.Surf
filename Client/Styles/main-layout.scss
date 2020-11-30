@@ -8,19 +8,19 @@ body > #app {
     grid-template-areas: "header" "content" "footer"
 }
 
-header { 
+header {
     grid-area: header;
 }
 
-main { 
+main {
     grid-area: content;
-    margin: $gap;
+    margin: $gap * 2;
 }
 
 footer {
     display: grid;
     background-color: whitesmoke;
-    grid-area: footer; 
+    grid-area: footer;
     align-items: center;
     @extend .text-center;
 }

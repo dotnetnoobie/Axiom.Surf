@@ -1,5 +1,4 @@
-﻿@import "bootstrap/bootstrap";
-/*@import "open-iconic/open-iconic";*/
+﻿@import "bootstrap/bootstrap"; 
 @import "fontawesome/fontawesome";
 @import "reset";
 @import "error-ui";
@@ -7,7 +6,4 @@
 @import "main-layout";
 @import "navbar";
 
-.loading {
-    display: grid;
-    place-items: center;
-}
+@import "loading";
