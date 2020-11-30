@@ -1,48 +1,25 @@
-@using Microsoft.AspNetCore.Components.Authorization
-@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-
-@inject NavigationManager Navigation
-@inject SignOutSessionStateManager SignOutManager
-@inject IAccessTokenProvider TokenProvider
-@inject HttpClient Http
-
 <ul class="flex-grow-0">
     <AuthorizeView>
         <Authorized>
             <li>
                 <NavLink>
                     <span class="text-light">
-                       @context.User.Identity.Name
+                        <span class="fas fa-fw fa-user" aria-hidden="true"></span> @context.User.Identity.Name
                     </span>
                 </NavLink>
             </li>
             <li>
-                <NavLink class="text-light" href="authentication/logout">
-                    Log out <span class="oi oi-account-logout" aria-hidden="true"></span>
+                <NavLink href="authentication/logout">
+                    Log out <span class="fas fa-fw fa-sign-in-alt" aria-hidden="true"></span>
                 </NavLink>
             </li>
         </Authorized>
         <NotAuthorized> 
             <li>
-                <NavLink class="text-light" href="authentication/login">
-                    Log in <span class="oi oi-account-login" aria-hidden="true"></span>
+                <NavLink href="authentication/login">
+                    Log in <span class="fas fa-fw fa-sign-out-alt" aria-hidden="true"></span>
                 </NavLink>
             </li> 
         </NotAuthorized>
     </AuthorizeView>
 </ul>
-
-@code{
-    private async Task BeginSignOut(MouseEventArgs args)
-    {
-        var tokenResult = await TokenProvider.RequestAccessToken();
-
-        if (tokenResult.TryGetToken(out var token))
-        {
-            var result = await Http.PostAsync($"https://oauth2.googleapis.com/revoke?token={token.Value}", null);
-        }
-
-        await SignOutManager.SetSignOutState();
-        Navigation.NavigateTo("authentication/logout");
-    }
-}
