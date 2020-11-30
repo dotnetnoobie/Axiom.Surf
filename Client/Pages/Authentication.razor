@@ -1,8 +1,35 @@
 @page "/authentication/{action}"
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 
+@inject NavigationManager Navigation
+@inject SignOutSessionStateManager SignOutManager
+@inject IAccessTokenProvider TokenProvider
+@inject HttpClient Http
+
 <RemoteAuthenticatorView Action="@Action" />
 
 @code{
     [Parameter] public string Action { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        switch (Action.ToLower())
+        {
+            case "logout":
+                {
+                    await SignOutManager.SetSignOutState();
+                    var tokenResult = await TokenProvider.RequestAccessToken();
+
+                    if (tokenResult.TryGetToken(out var token))
+                    {
+                        var result = await Http.PostAsync($"https://oauth2.googleapis.com/revoke?token={token.Value}", null);
+                    }
+
+                    //Navigation.NavigateTo("authentication/logout");
+                }
+                break;
+        }
+    }
 }

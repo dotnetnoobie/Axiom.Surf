@@ -24,16 +24,6 @@ namespace Axiom.Surf.Client
                 // options.ProviderOptions.DefaultScopes.Add("https://www.googleapis.com/auth/youtube");
             });
 
-            //builder.Services.AddOidcAuthentication(options =>
-            //{
-            //    options.ProviderOptions.MetadataUrl = "https://accounts.google.com/.well-known/openid-configuration";
-            //    options.ProviderOptions.ResponseType = "id_token token";
-            //    options.ProviderOptions.Authority = "https://accounts.google.com";
-            //    options.ProviderOptions.PostLogoutRedirectUri = $"{builder.HostEnvironment.BaseAddress}/authentication/logout-callback";
-            //    options.ProviderOptions.ClientId = "10126427864-o1t3qcc9lgdr2lalclhu9h8170ea4dg9.apps.googleusercontent.com";
-            //    options.ProviderOptions.DefaultScopes.Add("https://www.googleapis.com/auth/youtube");
-            //});
-
             await builder.Build().RunAsync();
         }
     }

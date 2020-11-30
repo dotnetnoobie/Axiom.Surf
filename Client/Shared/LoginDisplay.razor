@@ -6,21 +6,31 @@
 @inject IAccessTokenProvider TokenProvider
 @inject HttpClient Http
 
-<AuthorizeView>
-    <Authorized>
-        <NavLink>
-            <span class="text-light">
-                Hello, @context.User.Identity.Name!
-            </span> 
-            <a class="text-light" @onclick="BeginSignOut">Log out</a>
-        </NavLink>
-    </Authorized>
-    <NotAuthorized>
-        <NavLink class="text-light" href="authentication/login">
-            <span class="oi oi-account-login" aria-hidden="true"></span> Log in
-        </NavLink>
-    </NotAuthorized>
-</AuthorizeView>
+<ul class="flex-grow-0">
+    <AuthorizeView>
+        <Authorized>
+            <li>
+                <NavLink>
+                    <span class="text-light">
+                       @context.User.Identity.Name
+                    </span>
+                </NavLink>
+            </li>
+            <li>
+                <NavLink class="text-light" href="authentication/logout">
+                    Log out <span class="oi oi-account-logout" aria-hidden="true"></span>
+                </NavLink>
+            </li>
+        </Authorized>
+        <NotAuthorized> 
+            <li>
+                <NavLink class="text-light" href="authentication/login">
+                    Log in <span class="oi oi-account-login" aria-hidden="true"></span>
+                </NavLink>
+            </li> 
+        </NotAuthorized>
+    </AuthorizeView>
+</ul>
 
 @code{
     private async Task BeginSignOut(MouseEventArgs args)
